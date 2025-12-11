@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розумний Дім Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="global-settings">
+            <h2>Налаштування</h2>
+            
+            <div class="control-group">
+                <label>Режим "День/Ніч"</label>
+                <select id="day-night-select">
+                    <option value="day">День ☀️</option>
+                    <option value="night">Ніч 🌙</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Температура надворі: <span id="outside-temp-val">10</span>°C</label>
+                <input type="range" id="outside-temp-slider" min="-10" max="35" value="10">
+            </div>
+
+            <div class="control-group alarm-group">
+                <label>Режим Охорони 🛡️</label>
+                <button id="security-btn" class="btn">Вимкнено</button>
+            </div>
+
+            <div class="control-group">
+                <button id="start-sim-btn" class="btn primary">Запустити Симуляцію ⏱️</button>
+            </div>
+        </div>
+
+        <div class="house-plan" id="house-grid">
+            <div class="room" id="room-living">
+                <div class="room-title">Вітальня</div>
+                <div class="room-icons">
+                    <span class="icon">🌡️ 22°</span>
+                </div>
+            </div>
+            <div class="room" id="room-kitchen">
+                <div class="room-title">Кухня</div>
+                <div class="room-icons">
+                    <span class="icon">🌡️ 21°</span>
+                </div>
+            </div>
+            <div class="room" id="room-bedroom">
+                <div class="room-title">Спальня</div>
+                <div class="room-icons">
+                    <span class="icon">🌡️ 20°</span>
+                </div>
+            </div>
+            <div class="room" id="room-bathroom">
+                <div class="room-title">Ванна</div>
+                <div class="room-icons">
+                    <span class="icon">🌡️ 24°</span>
+                </div>
+            </div>
+            <div class="room" id="room-hall">
+                <div class="room-title">Коридор</div>
+                <div class="room-icons">
+                    <span class="icon">🌡️ 18°</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="details" id="room-details">
+            <h2>Деталі кімнати</h2>
+            
+            <div id="details-content">
+                <h3 id="detail-room-name">Вітальня</h3>
+                
+                <div class="stats-row">
+                    <div class="stat">
+                        <span class="icon">🌡️</span>
+                        <span id="detail-temp">22</span>°C
+                    </div>
+                    <div class="stat">
+                        <span class="icon">💧</span>
+                        <span id="detail-humidity">45</span>%
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Цільова t°: <span id="target-temp-val">23</span>°C</label>
+                    <input type="range" id="target-temp-slider" min="15" max="30" step="1" value="23">
+                </div>
+
+                <div class="control-group">
+                    <label>Цільова вологість: <span id="target-humid-val">50</span>%</label>
+                    <input type="range" id="target-humid-slider" min="30" max="80" step="5" value="50">
+                </div>
+
+                <div class="devices-status">
+                    <div id="dev-ac" class="device-icon inactive">❄️ AC</div>
+                    <div id="dev-heater" class="device-icon active">🔥 Heat</div>
+                    <div id="dev-humid" class="device-icon inactive">💧 Humid</div>
+                    <div id="dev-light" class="device-icon inactive">💡 Light</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="logs">
+            <div class="log-header">Системний Лог</div>
+            <div id="log-container">
+                <div class="log-entry">System: Симуляція запущена...</div>
+                <div class="log-entry">House: Усі системи в нормі.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="logic.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
